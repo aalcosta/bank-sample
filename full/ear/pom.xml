@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>br.com.dextra.curso</groupId>
+		<artifactId>bank</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.dextra.curso</groupId>
+	<artifactId>bank-ear</artifactId>
+	<name>Bank Application Ear</name>
+	<packaging>ear</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.dextra.curso</groupId>
+			<artifactId>bank-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>br.com.dextra.curso</groupId>
+			<artifactId>bank-war</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>bank</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+					<modules>
+						<ejbModule>
+							<groupId>br.com.dextra.curso</groupId>
+							<artifactId>bank-ejb</artifactId>
+						</ejbModule>
+						<webModule>
+							<groupId>br.com.dextra.curso</groupId>
+							<artifactId>bank-war</artifactId>
+							<context-root>bank</context-root>
+						</webModule>
+					</modules>
+					<jboss>
+						<version>4</version>
+						<unauthenticated-principal>guest</unauthenticated-principal>
+						<security-domain>java:/jaas/curso</security-domain>
+					</jboss>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

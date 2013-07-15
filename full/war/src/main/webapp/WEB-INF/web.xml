@@ -1,0 +1,65 @@
+<web-app>
+
+	<!--  Servlets -->
+    <servlet>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <servlet-class>br.com.dextra.curso.web.CreateAccountServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <url-pattern>/createAccount</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+		<servlet-name>AccountDepositServlet</servlet-name>
+		<servlet-class>br.com.dextra.curso.web.AccountDepositServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccountDepositServlet</servlet-name>
+		<url-pattern>/deposit</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AccountWithdrawServlet</servlet-name>
+		<servlet-class>br.com.dextra.curso.web.AccountWithdrawServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccountWithdrawServlet</servlet-name>
+		<url-pattern>/withdraw</url-pattern>
+	</servlet-mapping>
+
+
+	<!--  Security -->
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>The Restricted Zone</realm-name>
+	</login-config>
+
+	<security-role>
+		<description>Administrator</description>
+		<role-name>admin</role-name>
+	</security-role>
+	<security-role>
+		<description>Usuario</description>
+		<role-name>user</role-name>
+	</security-role>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Secure Content</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>POST</http-method>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+</web-app>

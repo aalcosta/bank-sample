@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+        <parent>
+                <groupId>br.com.dextra.curso</groupId>
+                <artifactId>bank</artifactId>
+                <version>1.0</version>
+        </parent>
+
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>br.com.dextra.curso</groupId>
+        <artifactId>bank-client</artifactId>
+        <name>Bank Application Client</name>
+        <packaging>jar</packaging>
+
+        <dependencies>
+                <dependency>
+                        <groupId>br.com.dextra.curso</groupId>
+                        <artifactId>bank-ejb</artifactId>
+			<type>ejb</type>
+                </dependency>
+                <dependency>
+                        <groupId>javax.ejb</groupId>
+                        <artifactId>ejb-api</artifactId>
+                </dependency>
+                <dependency>
+                        <groupId>javax.persistence</groupId>
+                        <artifactId>persistence-api</artifactId>
+                </dependency>
+                <dependency>
+                        <groupId>javax.jms</groupId>
+                        <artifactId>jms-api</artifactId>
+                </dependency>
+                <dependency>
+                       <groupId>javax.transaction</groupId>
+                       <artifactId>jta</artifactId>
+                </dependency>
+
+                <dependency>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                </dependency>
+        </dependencies>
+</project>

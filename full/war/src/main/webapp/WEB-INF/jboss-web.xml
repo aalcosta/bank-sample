@@ -1,0 +1,4 @@
+<jboss-web>
+	<context-root>bank</context-root>
+	<security-domain>java:/jaas/curso</security-domain>
+</jboss-web>
