@@ -2,6 +2,7 @@ package br.com.dextra.curso.bank.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -65,4 +66,11 @@ public class Account implements Serializable {
 		this.cash = value;
 	}
 
+	public void generateAccountNumber(){
+		
+		Random gerador = new Random();
+		accountNumber = String.valueOf(gerador.nextInt(1234));
+		
+	}
+	
 }

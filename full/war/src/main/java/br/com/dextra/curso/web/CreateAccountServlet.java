@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.math.BigDecimal;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,23 +18,20 @@ public class CreateAccountServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
+    @EJB(name="AccountManagerServiceBean")
+    private AccountManagerServiceLocal service;
+        
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        try {
-            AccountManagerServiceLocal service = (AccountManagerServiceLocal) new InitialContext().lookup("bank/AccountManagerServiceBean/local");
-
             Account account = new Account();
-            account.setOwner((String) req.getAttribute("owner"));
+            account.setOwner(req.getParameter("owner"));
             account.setCash(new BigDecimal(0));
-
+            account.generateAccountNumber();
+                        
             account = service.createAccount(account);
-            
+                   
             writeResponse(resp, account);
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     private void writeResponse(HttpServletResponse resp, Account a) throws IOException {

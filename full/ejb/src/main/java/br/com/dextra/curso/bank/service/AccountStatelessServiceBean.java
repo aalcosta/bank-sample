@@ -31,7 +31,7 @@ public class AccountStatelessServiceBean implements
 	@Resource
 	private SessionContext ctx;
 
-	@PersistenceContext(unitName = "teste")
+	@PersistenceContext(unitName="teste")
 	private EntityManager em;
 
 	public BigDecimal deposit(String accountNumber, BigDecimal value)

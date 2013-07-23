@@ -33,6 +33,7 @@
 
 
 	<!--  Security -->
+<!--	
 	<login-config>
 		<auth-method>BASIC</auth-method>
 		<realm-name>The Restricted Zone</realm-name>
@@ -61,5 +62,5 @@
 			<transport-guarantee>NONE</transport-guarantee>
 		</user-data-constraint>
 	</security-constraint>
-
+-->
 </web-app>

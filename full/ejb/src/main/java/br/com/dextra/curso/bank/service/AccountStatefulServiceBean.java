@@ -30,7 +30,7 @@ public class AccountStatefulServiceBean implements AccountStatefulService {
 	@Resource
 	private SessionContext ctx;
 
-	@PersistenceContext(unitName = "teste")
+	@PersistenceContext(unitName="teste")
 	private EntityManager em;
 
 	private Account account;

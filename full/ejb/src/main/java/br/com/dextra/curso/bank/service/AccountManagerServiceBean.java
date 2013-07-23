@@ -36,7 +36,7 @@ public class AccountManagerServiceBean implements AccountManagerServiceLocal,
 	@Resource
 	private SessionContext ctx;
 
-	@PersistenceContext
+	@PersistenceContext(unitName="teste")
 	private EntityManager em;
 
 	public void applyTax(Long accountId, String taxName, BigDecimal value) {
@@ -49,7 +49,7 @@ public class AccountManagerServiceBean implements AccountManagerServiceLocal,
 				MovimentType.DEBIT, value);
 	}
 
-	public Account createAccount(Account account) {		
+	public Account createAccount(Account account) {
 		em.persist(account);
 
 		LOGGER.info(" ##################### ");
