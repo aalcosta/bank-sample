@@ -5,8 +5,8 @@
 
 	<modelVersion>4.0.0</modelVersion>
         <groupId>br.com.dextra.curso</groupId>
-        <artifactId>bank-ejb-stateless</artifactId>
-        <name>Exercicio - Steteless Session Bean</name>
+        <artifactId>bank-ejb-persistence</artifactId>
+        <name>Exercicio - EJB Persistence</name>
         <packaging>ejb</packaging>
 
         <parent>
@@ -19,18 +19,32 @@
                 <dependency>
                         <groupId>javax.annotation</groupId>
                         <artifactId>jsr250-api</artifactId>
-                        <scope>provided</scope>
+                        <version>1.0</version>
                 </dependency>
                 <dependency>
                         <groupId>javax.ejb</groupId>
                         <artifactId>ejb-api</artifactId>
                         <scope>provided</scope>
                 </dependency>
-
+                <dependency>
+                        <groupId>javax.persistence</groupId>
+                        <artifactId>persistence-api</artifactId>
+                        <scope>provided</scope>
+                </dependency>
                 <dependency>
                         <groupId>commons-logging</groupId>
                         <artifactId>commons-logging</artifactId>
-                        <version>1.1</version>
+                        <scope>provided</scope>
+                </dependency>
+                <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-annotations</artifactId>
+                        <scope>provided</scope>
+                </dependency>
+                <dependency>
+                        <groupId>ehcache</groupId>
+                        <artifactId>ehcache</artifactId>
+                        <scope>provided</scope>
                 </dependency>
         </dependencies>
 

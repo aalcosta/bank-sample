@@ -9,12 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <name>Bank Application</name>
-    <!--modules>
-        <module>client</module>
-        <module>ejb</module>
-        <module>war</module>
-        <module>ear</module>
-    </modules-->
+    <modules>
+        <module>stateless</module>
+        <module>persistence</module>
+        <module>full</module>
+    </modules>
 
     <build>
         <pluginManagement>

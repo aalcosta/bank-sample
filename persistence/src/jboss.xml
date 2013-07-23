@@ -1,0 +1,27 @@
+<jboss>
+   <enterprise-beans>
+      <session>
+         <ejb-name>AccountManagerService</ejb-name>
+         <jndi-name>bank/AccountManagerRemote</jndi-name>
+         <local-jndi-name>bank/AccountManagerLocal</local-jndi-name>
+         <resource-ref>
+            <res-ref-name>jdbcDS</res-ref-name>
+            <jndi-name>java:/DefaultDS</jndi-name>
+         </resource-ref>
+      </session>      
+
+      <message-driven>
+         <ejb-name>MovimentNotificationMDB</ejb-name>
+         <resource-adapter-name>jms-ra.rar</resource-adapter-name>
+      </message-driven>      
+
+      <message-driven>
+         <ejb-name>CPMFCalculatorMDB</ejb-name>
+         <resource-adapter-name>jms-ra.rar</resource-adapter-name>
+         <ejb-local-ref>
+            <ejb-ref-name>ejb/AccountMananger</ejb-ref-name>
+            <local-jndi-name>bank/AccountManagerLocal</local-jndi-name>
+         </ejb-local-ref>
+      </message-driven>      
+   </enterprise-beans>
+</jboss>
